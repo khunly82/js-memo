@@ -1,0 +1,37 @@
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.card {
+    width: 150px;
+    aspect-ratio: 14/20;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 15px 0 #ccc;
+    border-radius: 5px;
+    position: relative;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    &.show {
+        transform: unset;
+        pointer-events: none;
+    }
+    .front, .back {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .back {
+        transform: rotateY(180deg);
+        background-color: red;
+    }
+    .front img {
+        width: 80%;
+    }
+}
